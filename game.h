@@ -26,8 +26,9 @@ class WhiteShape :public Shape
 
 class Goban
 {
-	const size_t s = 9;
-	int plate[s][s];
+
+	
+	int plate[9][9];
 public:
 	void DrawGoban();
 	void CleanGoban();

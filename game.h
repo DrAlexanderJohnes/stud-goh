@@ -1,42 +1,63 @@
 #ifndef _GAME_
 #define _GAME_
 
-class Shape
+
+#include<exception>
+
+
+
+
+class BlackShape :public implication
 {
-	int x, y;
+
+	const char*BShape = { "BS" };
 public:
-	virtual int GetPosition();
-	virtual void Draw();
-	virtual int Step();
+	virtual void Draw() {};
+	
 
+};
+
+class WhiteShape :public implication
+{
+
+
+	const char*WShape = { "WS" };
+public:
+	virtual void Draw() {};
 
 
 };
 
-
-class BlackShape :public Shape
+class Goban:public implication
 {
-
-};
-
-class WhiteShape :public Shape
-{
-
-};
-
-class Goban
-{
-
 	
 	int plate[9][9];
 public:
-	void DrawGoban();
-	void CleanGoban();
-	void ShowShapes();
 
+	virtual void Draw();
 
 	
+
 };
+
+class implication
+{
+	int x, y;
+public:
+	implication(int x, int y);
+
+	virtual void Draw();
+	virtual int GetPosition();
+	virtual~implication();
+
+
+
+};
+
+
+
+
+
 
 
 #endif // !_GAME_
